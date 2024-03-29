@@ -10,10 +10,10 @@
       <input type="hidden" name="commit" value="Log in">
       <div class="rounded-md shadow-sm -space-y-px">
         <div class="field">
-          <%= f.label :email, class: "sr-only" %>
-          <%= f.email_field :email, autofocus: true, 
-            autocomplete: "email", 
-            placeholder: "Email address",  
+          <%= f.label :username, class: "sr-only" %>
+          <%= f.text_field :username, autofocus: true, 
+            autocomplete: "username", 
+            placeholder: "Username ",  
             class: "input_field rounded-t-md" %>
         </div>
         <div class="field">
