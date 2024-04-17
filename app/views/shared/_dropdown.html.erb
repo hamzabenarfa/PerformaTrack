@@ -1,0 +1,18 @@
+<div data-controller="dropdown" class="relative">
+  <button type="button" data-action="dropdown#toggle click@window->dropdown#hide">
+     <%= image_tag("user.svg", class: "h-10 w-10 text-gray-400") %>
+  </button>
+
+  <div
+    data-dropdown-target="menu"
+    class="hidden transition transform origin-top-right absolute right-0 bg-white border
+     border-gray-200 divide-y divide-gray-100 rounded-md shadow-lg  w-32"
+    data-transition-enter-from="opacity-0 scale-95"
+    data-transition-enter-to="opacity-100 scale-100"
+    data-transition-leave-from="opacity-100 scale-100"
+    data-transition-leave-to="opacity-0 scale-95"
+  >
+  <%= button_to "Logout", destroy_user_session_path, method: :delete, 
+        class: "block w-full text-left px-4 py-2 text-sm text-gray-700 font-semibold hover:bg-gray-100" %>
+  </div>
+</div>

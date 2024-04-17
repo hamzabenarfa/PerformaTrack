@@ -30,6 +30,7 @@ gem "cssbundling-rails"
 gem "jbuilder"
 
 gem 'devise'
+gem 'roo', '~> 2.8.0'
 
 
 # Use Redis adapter to run Action Cable in production
@@ -51,7 +52,10 @@ gem "bootsnap", require: false
 # gem "image_processing", "~> 1.2"
 
 group :development, :test do
-  # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
+  gem 'rspec-rails'
+  # Add factory_bot and faker for easier test data management
+  gem 'factory_bot_rails'
+  gem 'faker'
   gem "debug", platforms: %i[ mri windows ]
 end
 
