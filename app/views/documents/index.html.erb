@@ -1,0 +1,45 @@
+<%= turbo_frame_tag "main_content" do %>
+
+<div class="container mx-auto px-4 flex flex-col">
+  <h1 class="text-2xl font-bold my-4"> Documents</h1>
+<%= link_to 'Upload New Document', new_document_path, 
+    class: "bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-2 rounded my-4 inline-flex items-center justify-center text-sm  ml-auto" %>
+ 
+
+  <table class="table-auto w-full">
+    <thead>
+      <tr class="bg-gray-200">
+        <th class="px-4 py-2">Id</th>
+        <th class="px-4 py-2">Name</th>
+        <th class="px-4 py-2">Actions</th>
+        <th>download</th>
+      </tr>
+    </thead>
+    <tbody class="text-center">
+      <% @documents.each do |document| %>
+        <tr class="bg-white">
+          <td class="border px-4 py-2"><%= document.id %></td>
+          <td class="border px-4 py-2"><%= document.excel_file.filename.to_s %></td>
+          <td class="border px-4 py-2">
+            <%=  button_to 'Delete', document, method: :delete, data:{turbo_confirm:'Are you sure?'}, 
+                class: "bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded" %>
+          </td>
+
+          <td class="border px-4 py-2">
+
+            <% if document.excel_file.attached? %>
+                <%= button_to "Download", 
+                    rails_blob_path(document.excel_file, disposition: "attachment"), 
+                    method: :get, 
+                    class: "bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" %>
+            <% else %>
+                    <span>No file attached</span>
+            <% end %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
+
+<% end %>

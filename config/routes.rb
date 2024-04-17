@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   devise_for :users
   resources :dashboard
+  resources :documents
 
   get "up" => "rails/health#show", as: :rails_health_check
   get '*path', to: 'application#handle_unknown_routes'

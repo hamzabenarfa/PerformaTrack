@@ -1,0 +1,12 @@
+<%= turbo_frame_tag "main_content" do %>
+<div class="min-h-screen flex items-center justify-center">
+
+  <%= form_with model: @document, local: true, class: "" do |form| %>
+    <div class="flex items-center justify-center space-x-3">
+      <%= form.label :excel_file, class: "bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded cursor-pointer" %>
+      <%= form.file_field :excel_file, class: "hidden" %>
+      <%= form.submit "Upload", class: "bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" %>
+    </div>
+  <% end %>
+</div>
+<% end %>

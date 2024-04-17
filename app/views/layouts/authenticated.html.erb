@@ -12,8 +12,10 @@
     <p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>
     <%= render 'shared/navbar' %>
-    
-    <%= render 'shared/sidebar' %>
-    <%= yield %>
+
+    <div class="flex min-h-screen w-full">
+      <%= render 'shared/sidebar' %>
+      <%= yield %>
+    </div>
   </body>
 </html>
